@@ -1,0 +1,19 @@
+INDEX VERSION 1.127+C:\Users\AL.SYLOB\workspace\thiaroye\.metadata\.plugins\org.eclipse.jdt.core
+371176666.index
+743810685.index
+2322344968.index
+448337572.index
+1820827271.index
+3241734034.index
+2273470878.index
+1622909044.index
+2054633213.index
+3085698573.index
+3938865927.index
+3372957431.index
+2243699061.index
+4053622602.index
+142424524.index
+2129417099.index
+1629724109.index
+2776711300.index
