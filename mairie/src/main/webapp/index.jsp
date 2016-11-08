@@ -1,14 +1,16 @@
-<%@ page  language=" java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"  %>
+<%@ page  language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"  %>
 <%@ taglib  prefix="s" uri="/struts-tags"  %>
 <html>
 <body>
-<s:form action="identifier" >
 
-<h2>Mairie de thiaroye</h2>
-<s:textfield key="personne.login"/>
-<s:textfield key="personne.password"/>
-<s:submit name="Valider" />
-</s:form>
+<form action="login">
+<table>
+<tr><s:textfield key="personne.login" /></tr>
+<tr><s:textfield key="personne.password" /></tr>
+<s:submit value="Se connecter" />
+</table>
+</form>
+
 </body>
 
 </html>

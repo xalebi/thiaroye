@@ -4,10 +4,15 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
  
  <struts>
-     <constant name="struts.custum.i18n.ressources" value="global"></constant>
-    <package name="mairie"  namespace="/">
-        <action name="identifier" class="web.IdentifierAction" method="execute">
-            <result name="success">menu.jsp</result>
+    
+     <constant name="stuts.devMode" value="true"/>
+      <constant name="struts.custum.i18n.ressources" value="global" />
+      <package name="web" extends="struts-default" >
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+        <action name="identifier" class="web.IdentifierAction">
+            <result name="success">/menu.jsp</result>
         </action>
     </package> 
      
