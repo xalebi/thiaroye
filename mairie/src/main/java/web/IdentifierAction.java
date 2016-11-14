@@ -2,11 +2,22 @@ package web;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.Personne;
+
 public class IdentifierAction extends ActionSupport{
 	/**
 	 * 
 	 */
+	Personne personne;
 	private static final long serialVersionUID = -5715007290418617174L;
+
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
+	}
 
 	public String execute(){
 		return ActionSupport.SUCCESS;
