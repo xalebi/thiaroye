@@ -28,6 +28,10 @@ public class PersonneEntite implements Personne  {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
 	@Column
+	private String login;
+	@Column
+	private String password;
+	@Column
 	private String nom;
 	@Column
 	private String prenom;
@@ -82,6 +86,26 @@ public class PersonneEntite implements Personne  {
 	}
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
+	}
+
+	@Override
+	public String getLogin() {
+		return login;
+	}
+
+	@Override
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	@Override
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

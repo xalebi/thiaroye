@@ -24,4 +24,12 @@ public interface Personne extends Serializable {
 
 	String getId();
 
+	void setPassword(String password);
+
+	String getPassword();
+
+	void setLogin(String login);
+
+	String getLogin();
+
 }
