@@ -11,11 +11,11 @@
 	<table>
 		<tr>
 			<td>
+			<s:textfield key="personne.nom" />
 			
 			</td>
 		</tr>
 	</table>
 </s:form>
-test success 
 </body>
 </html>

@@ -28,4 +28,13 @@ public class IdentifierAction extends ActionSupport{
 					ActionSupport.ERROR;
 		}
 	}
+	
+	public void validate(){
+		if(!personne.getLogin().equals("AL")){
+			addFieldError("personne.login", "login incorrect");
+		}
+		if(!personne.getPassword().equals("AL")){
+			addFieldError("personne.password", "mot de passe incorrect");
+		}
+	}
 }

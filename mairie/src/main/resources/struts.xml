@@ -5,13 +5,14 @@
  
  <struts>
      <constant name="stuts.devMode" value="true"/>
-      <constant name="struts.custum.i18n.ressources" value="global" />
+      <constant name="struts.custom.i18n.resources" value="global" />
       <package name="web" extends="struts-default" >
         <action name="index">
             <result>/index.jsp</result>
         </action>
         <action name="login" class="web.IdentifierAction">
             <result name="success">/menu.jsp</result>
+            <result name="input" >/index.jsp</result>
         </action>
     </package> 
      
