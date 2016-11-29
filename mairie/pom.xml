@@ -44,13 +44,21 @@
     <artifactId>hibernate-commons-annotations</artifactId>
     <version>5.0.1.Final</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+ 
 
 <dependency>
     <groupId>log4j</groupId>
     <artifactId>log4j</artifactId>
     <version>1.2.14</version>
 </dependency>
-    
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>5.0.0.M2</version>
+</dependency>
+
   </dependencies>
   <build>
     <finalName>mairie</finalName>

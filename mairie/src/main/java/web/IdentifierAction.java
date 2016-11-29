@@ -2,7 +2,8 @@ package web;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.Personne;
+import bean.Personne;
+import service.PersonneServiceImpl;
 
 public class IdentifierAction extends ActionSupport{
 	/**
@@ -20,6 +21,9 @@ public class IdentifierAction extends ActionSupport{
 	}
 
 	public String execute(){
+		
+		PersonneServiceImpl personneServiceBean=new PersonneServiceImpl();
+		personneServiceBean.getPersonne(personne);
 		if(personne.getLogin().equals("AL")&& personne.getPassword().equals("AL") ){
 		return ActionSupport.SUCCESS;
 	}

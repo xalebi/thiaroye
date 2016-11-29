@@ -17,6 +17,6 @@
         </property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
-        <mapping class="PersonneEntite" />
+        <mapping class="dao.PersonneEntite" />
     </session-factory>
 </hibernate-configuration>
