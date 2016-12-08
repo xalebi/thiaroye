@@ -2,29 +2,29 @@ package web;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import bean.Personne;
+import bean.PersonneBean;
 import service.PersonneServiceImpl;
 
 public class IdentifierAction extends ActionSupport{
 	/**
 	 * 
 	 */
-	PersonneVO personne;
+	PersonneVO personneVO;
 	private static final long serialVersionUID = -5715007290418617174L;
 
-	public PersonneVO getPersonne() {
-		return personne;
+	public PersonneVO getPersonneVO() {
+		return personneVO;
 	}
 
-	public void setPersonne(PersonneVO personne) {
-		this.personne = personne;
+	public void setPersonne(PersonneVO personneVO) {
+		this.personneVO = personneVO;
 	}
 
 	public String execute(){
 		
 		PersonneServiceImpl personneServiceBean=new PersonneServiceImpl();
 		personneServiceBean.getPersonne(personne);
-		if(personne.getLogin().equals("AL")&& personne.getPassword().equals("AL") ){
+		if(personneVO.getLogin().equals("AL")&& personneVO.getPassword().equals("AL") ){
 		return ActionSupport.SUCCESS;
 	}
 		else{
@@ -34,10 +34,10 @@ public class IdentifierAction extends ActionSupport{
 	}
 	
 	public void validate(){
-		if(!personne.getLogin().equals("AL")){
+		if(!personneVO.getLogin().equals("AL")){
 			addFieldError("personne.login", "login incorrect");
 		}
-		if(!personne.getPassword().equals("AL")){
+		if(!personneVO.getPassword().equals("AL")){
 			addFieldError("personne.password", "mot de passe incorrect");
 		}
 	}

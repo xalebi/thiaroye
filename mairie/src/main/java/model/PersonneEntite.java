@@ -1,4 +1,4 @@
-package bean;
+package model;
 
 import java.util.Date;
 
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import bean.PersonneBean;
 
 @Table
 @Entity
@@ -41,7 +43,7 @@ public class PersonneEntite implements Personne  {
 	private String adresse;
 	@Temporal(TemporalType.TIME)
 	private Date dateNaissance;
-	@Override
+	
 	public String getId() {
 		return id;
 	}
@@ -49,35 +51,35 @@ public class PersonneEntite implements Personne  {
 	private  void setId(String id) {
 		this.id = id;
 	}
-	@Override
+	
 	public String getNom() {
 		return nom;
 	}
-	@Override
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	@Override
+	
 	public String getPrenom() {
 		return prenom;
 	}
-	@Override
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	@Override
+	
 	public String getTel() {
 		return tel;
 	}
-	@Override
+
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	@Override
+	
 	public String getAdresse() {
 		return adresse;
 	}
-	@Override
+	
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
@@ -88,22 +90,22 @@ public class PersonneEntite implements Personne  {
 		this.dateNaissance = dateNaissance;
 	}
 
-	@Override
+	
 	public String getLogin() {
 		return login;
 	}
 
-	@Override
+
 	public void setLogin(String login) {
 		this.login = login;
 	}
 
-	@Override
+
 	public String getPassword() {
 		return password;
 	}
 
-	@Override
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}

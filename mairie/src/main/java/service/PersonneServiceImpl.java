@@ -6,18 +6,18 @@ import java.util.Map;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import bean.Personne;
+import bean.PersonneBean;
+import model.Personne;
 import utils.MairieUtil;
-import web.PersonneVO;
 
 public class PersonneServiceImpl implements PersonneService {
 	@Override
-	public void createPersonne(PersonneVO personneVO) throws InstantiationException, IllegalAccessException
+	public void createPersonne(Personne personne) throws InstantiationException, IllegalAccessException
 	{
 		Session session=MairieUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction().begin();
 		PersonneVOAssembler pvoa=new PersonneVOAssembler();
-		Personne personne=pvoa.getPersonne(personneVO);
+		//PersonneBean personne=pvoa.getPersonne(personne);
 		session.save(personne);
 		session.beginTransaction().commit();
 		session.close();

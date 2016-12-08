@@ -1,13 +1,13 @@
 package service;
 
-import bean.Personne;
+import bean.PersonneBean;
 import web.PersonneVO;
 
 public class PersonneVOAssembler {
 	
-	public Personne getPersonne(PersonneVO personneVO) throws InstantiationException, IllegalAccessException{
+	public static PersonneBean getPersonne(PersonneBean personneVO) throws InstantiationException, IllegalAccessException{
 		
-		Personne personne= Personne.class.newInstance();
+		PersonneBean personne= PersonneBean.class.newInstance();
 		personne.setLogin(personneVO.getLogin());
 		personne.setPassword(personneVO.getPassword());
 		personne.setAdresse(personneVO.getAdresse());
