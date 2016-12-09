@@ -23,8 +23,9 @@ public class PersonneServiceImpl implements PersonneService {
 		session.close();
 	}
 	@Override
-	public int getPersonne(Personne personne){
+	public int getPersonne(PersonneBean personneBean) throws InstantiationException, IllegalAccessException{
 		Session session=MairieUtil.getSessionFactory().getCurrentSession();
+		Personne personne=PersonneVOAssembler.getInstance().getPersonne(personneBean);
 		Map<String, String> mapParameter=new HashMap<>();
 		mapParameter.put("login", personne.getLogin());
 		mapParameter.put("password",personne.getPassword());
@@ -33,6 +34,11 @@ public class PersonneServiceImpl implements PersonneService {
 		query.setParameter("password", mapParameter.get("password"));
 		int result=query.executeUpdate();
 		return result;
+	}
+	@Override
+	public int getPersonneBean(Personne personne) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

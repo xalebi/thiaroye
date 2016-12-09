@@ -9,28 +9,38 @@ public class IdentifierAction extends ActionSupport{
 	/**
 	 * 
 	 */
-	PersonneVO personneVO;
+	PersonneBean personneBean;
 	private static final long serialVersionUID = -5715007290418617174L;
 
-	public PersonneVO getPersonneVO() {
-		return personneVO;
+	public PersonneBean getPersonneBean() {
+		return personneBean;
 	}
 
-	public void setPersonne(PersonneVO personneVO) {
-		this.personneVO = personneVO;
+	public void setPersonne(PersonneBean personneVO) {
+		this.personneBean= personneVO;
 	}
 
 	public String execute(){
 		
 		PersonneServiceImpl personneServiceBean=new PersonneServiceImpl();
-		personneServiceBean.getPersonne(personne);
-		if(personneVO.getLogin().equals("AL")&& personneVO.getPassword().equals("AL") ){
-		return ActionSupport.SUCCESS;
-	}
-		else{
-			return 
-					ActionSupport.ERROR;
+		int result;
+		try {
+			result = personneServiceBean.getPersonne(personneBean);
+			if(result==1 ){
+				return ActionSupport.SUCCESS;
+			}
+				else{
+					return 
+							ActionSupport.ERROR;
+				}
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	
 	}
 	
 	public void validate(){
