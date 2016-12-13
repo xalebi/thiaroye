@@ -34,20 +34,23 @@ public class IdentifierAction extends ActionSupport{
 							ActionSupport.ERROR;
 				}
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return ActionSupport.ERROR;
+			
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return ActionSupport.ERROR;
+			
 		}
 	
 	}
 	
 	public void validate(){
-		if(!personneVO.getLogin().equals("AL")){
+		if(!personneBean.getLogin().equals("AL")){
 			addFieldError("personne.login", "login incorrect");
 		}
-		if(!personneVO.getPassword().equals("AL")){
+		if(!personneBean.getPassword().equals("AL")){
 			addFieldError("personne.password", "mot de passe incorrect");
 		}
 	}

@@ -5,11 +5,19 @@ import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.type.TrueFalseType;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import bean.PersonneBean;
+import dao.PersonneDAO;
+import dao.PersonneDaoImpl;
 import model.Personne;
 import utils.MairieUtil;
 
+@Service("personneService")
+@Transactional(propagation=Propagation.SUPPORTS,readOnly=true)
 public class PersonneServiceImpl implements PersonneService {
 	@Override
 	public void createPersonne(Personne personne) throws InstantiationException, IllegalAccessException
@@ -24,16 +32,11 @@ public class PersonneServiceImpl implements PersonneService {
 	}
 	@Override
 	public int getPersonne(PersonneBean personneBean) throws InstantiationException, IllegalAccessException{
-		Session session=MairieUtil.getSessionFactory().getCurrentSession();
+		
 		Personne personne=PersonneVOAssembler.getInstance().getPersonne(personneBean);
-		Map<String, String> mapParameter=new HashMap<>();
-		mapParameter.put("login", personne.getLogin());
-		mapParameter.put("password",personne.getPassword());
-		Query query= session.createQuery("from PersonneEntite as personne where personne.login=: and personne.password:=");
-		query.setParameter("login",mapParameter.get("login"));
-		query.setParameter("password", mapParameter.get("password"));
-		int result=query.executeUpdate();
-		return result;
+		
+		PersonneDAO personneDAO =new PersonneDaoImpl();
+		return personneDAO.getPersonne(personne);
 	}
 	@Override
 	public int getPersonneBean(Personne personne) {

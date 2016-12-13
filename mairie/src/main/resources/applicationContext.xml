@@ -8,6 +8,35 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+<context:property-placeholder location="classpath:database.properties" />
+<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
 
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+    <property name="driverClassName" value="${database.driver}"></property>
+    <property name="url" value="${database.url}"></property>
+    <property name="username" value="database.username"></property>
+    <property name="password" value="${database.password}"></property>
+</bean>
 
+<bean class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" id="sessionFactory">
+ <property name="dataSource" ref="dataSource"></property>
+   <property name="annotatedClasses">
+     <list>
+       <value>model.PersonneEntite</value>
+     </list>
+   </property>
+   <property name="hibernateProperties">
+    <props>
+      <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+      <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+      <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}  </prop>    
+         </props>
+       </property>
+       </bean>
+       
+  <bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="hibernateTransactionManager">
+  <property name="sessionFactory" ref="sessionFactory"></property>
+  </bean>
+  <bean id="personne" class="web.IdentificationAction"/>
+    <bean id="personneBean" class="bean.PersonneBean"/>
 </beans>
