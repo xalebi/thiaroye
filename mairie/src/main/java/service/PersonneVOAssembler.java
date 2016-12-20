@@ -2,6 +2,7 @@ package service;
 
 import bean.PersonneBean;
 import model.Personne;
+import model.PersonneEntite;
 
 public class PersonneVOAssembler {
 	private static PersonneVOAssembler instance;
@@ -28,7 +29,7 @@ public class PersonneVOAssembler {
 	
 public  Personne getPersonne(PersonneBean personneBean) throws InstantiationException, IllegalAccessException{
 		
-		Personne personne= Personne.class.newInstance();
+		Personne personne= new PersonneEntite();
 		personne.setLogin(personneBean.getLogin());
 		personne.setPassword(personneBean.getPassword());
 		personne.setAdresse(personneBean.getAdresse());

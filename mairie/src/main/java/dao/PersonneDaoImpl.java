@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,6 +24,16 @@ public class PersonneDaoImpl implements PersonneDAO {
 		int result=query.executeUpdate();
 		return result;
 		 
+	}
+
+	@Override
+	public void creatPersonne(Personne personne) {
+		Session session=sessionFactory.getCurrentSession();
+		session.beginTransaction().begin();
+		session.save(personne);
+		session.beginTransaction().commit();
+		
+		
 	}
 
 }
